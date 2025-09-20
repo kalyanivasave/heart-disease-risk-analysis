@@ -1,9 +1,0 @@
-#!/bin/sh
-'''exec' "/Users/kalyaniarunwasave/ACAD/Backup/INFO 7374/Homework-1_K-21/.venv/bin/python" "$0" "$@"
-' '''
-import sys
-from fontTools.subset import main
-if __name__ == '__main__':
-    if sys.argv[0].endswith('.exe'):
-        sys.argv[0] = sys.argv[0][:-4]
-    sys.exit(main())
