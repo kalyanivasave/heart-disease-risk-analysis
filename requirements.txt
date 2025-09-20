@@ -1,0 +1,12 @@
+# Python packages required for Heart Disease Analysis (HW1_Code.py)
+# These packages handle data processing, machine learning, and visualization
+
+# Data manipulation and analysis
+pandas
+numpy
+
+# Machine Learning tools (KNN, K-means)
+scikit-learn
+
+# Plotting and visualization
+matplotlib
