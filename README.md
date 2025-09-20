@@ -1,6 +1,6 @@
 # Heart Disease Risk Analysis
 
-A compact machine-learning project that demonstrates supervised classification (K-Nearest Neighbors) and unsupervised clustering (K-Means) on a heart disease dataset. The analysis predicts heart-disease presence and explores relationships between features such as Age and Maximum Heart Rate (MaxHR).
+A machine learning project that demonstrates supervised classification (K-Nearest Neighbors) and unsupervised clustering (K-Means) on a heart disease dataset. The analysis predicts heart-disease presence and explores relationships between features such as Age and Maximum Heart Rate (MaxHR).
 
 ## Project structure
 
@@ -54,24 +54,6 @@ python src/HW1_Code.py
 ```bash
 jupyter lab notebooks/HW1_Code.ipynb
 ```
-
-## Usage (example)
-
-Run the script from the repository root. Representative console output:
-
-```
-Loaded: data/Heart_Failure.csv  shape=(300, 15)
-Train=216  Val=24  Test=60
-Validation Accuracies: K=3 -> 0.6351, K=9 -> 0.6486, K=21 -> 0.6486
-Best K on validation: 21 (acc=0.6486)
-Test Accuracy (K=21): 0.7283
-Confusion Matrix:
-[[52 30]
- [20 82]]
-Saved plot: results/kmeans_clusters_age_maxhr_final.png
-```
-
-(Exact numbers may vary depending on dataset and environment.)
 
 ## Implementation summary
 
