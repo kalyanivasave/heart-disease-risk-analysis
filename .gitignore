@@ -19,5 +19,9 @@ __pycache__/
 /data/
 /results/
 
+# Environment files
+.env
+.env.*
+
 # IDE/editor
 .vscode/
