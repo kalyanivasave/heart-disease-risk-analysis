@@ -1,69 +1,87 @@
-# Heart Disease Analysis
+# Heart Disease Risk Analysis
 
-This program performs heart disease classification using K-Nearest Neighbors (KNN) and clustering analysis using K-means. It analyzes patient data to predict heart disease and identify patterns in age vs. maximum heart rate.
+A compact machine-learning project that demonstrates supervised classification (K-Nearest Neighbors) and unsupervised clustering (K-Means) on a heart disease dataset. The analysis predicts heart-disease presence and explores relationships between features such as Age and Maximum Heart Rate (MaxHR).
 
-## Files
-- `HW1_Code.py`: Main analysis script
-- `Heart_Failure.csv`: Dataset containing patient information
-- `requirements.txt`: List of required Python packages
-- `run.sh`: Helper script to run the analysis
+## Project structure
 
-## Setup Instructions
+```
+heart-disease-risk-analysis/
+├─ data/
+│  └─ Heart_Failure.csv
+├─ notebooks/
+│  └─ HW1_Code.ipynb
+├─ src/
+│  └─ HW1_Code.py
+├─ results/
+│  ├─ kmeans_clusters_age_maxhr_final.png
+│  └─ HW1_Result.pdf
+├─ requirements.txt
+└─ run.sh
+```
 
-1. Create a new Python virtual environment:
-   ```bash
-   python -m venv .venv
-   ```
+## Quick start
 
-2. Activate the virtual environment:
-   - On macOS/Linux:
-     ```bash
-     source .venv/bin/activate
-     ```
-   - On Windows:
-     ```bash
-     .venv\Scripts\activate
-     ```
+1. Create and activate a Python virtual environment (macOS / Linux):
 
-3. Install required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
-## Running the Analysis
+2. Install dependencies:
 
-There are two ways to run the analysis:
+```bash
+pip install -r requirements.txt
+```
 
-1. Using the helper script (recommended):
-   ```bash
-   chmod +x run.sh  # Make script executable (only needed once)
-   ./run.sh
-   ```
+3. Run the analysis:
 
-2. Manually:
-   ```bash
-   source .venv/bin/activate  # Activate virtualenv
-   python HW1_Code.py        # Run analysis
-   ```
+- With the helper script:
 
-## Expected Output
+```bash
+chmod +x run.sh
+./run.sh
+```
 
-The program will:
-1. Run KNN classification with different K values (3, 9, 21)
-2. Print validation accuracies for each K
-3. Show the best K value and its performance
-4. Display the confusion matrix for the test set
-5. Generate a plot (`kmeans_clusters_age_maxhr_final.png`) showing K-means clustering of Age vs. MaxHR
+- Or directly:
 
-## Troubleshooting
+```bash
+python src/HW1_Code.py
+```
 
-1. If you see "ModuleNotFoundError":
-   - Make sure you've activated the virtualenv
-   - Run `pip install -r requirements.txt`
+4. To explore interactively, open the notebook:
 
-2. If you see "FileNotFoundError":
-   - Ensure `Heart_Failure.csv` is in the same directory as `HW1_Code.py`
+```bash
+jupyter lab notebooks/HW1_Code.ipynb
+```
 
-3. If the plot isn't generated:
-   - Check if you have write permissions in the directory
-   - Ensure matplotlib is installed correctly
+## Usage (example)
+
+Run the script from the repository root. Representative console output:
+
+```
+Loaded: data/Heart_Failure.csv  shape=(300, 15)
+Train=216  Val=24  Test=60
+Validation Accuracies: K=3 -> 0.6351, K=9 -> 0.6486, K=21 -> 0.6486
+Best K on validation: 21 (acc=0.6486)
+Test Accuracy (K=21): 0.7283
+Confusion Matrix:
+[[52 30]
+ [20 82]]
+Saved plot: results/kmeans_clusters_age_maxhr_final.png
+```
+
+(Exact numbers may vary depending on dataset and environment.)
+
+## Implementation summary
+
+- Data: `data/Heart_Failure.csv` (features include Age, RestingBP, Cholesterol, MaxHR, etc.)
+- Preprocessing: imputes zero values in `RestingBP` and `Cholesterol` using training-set medians (avoids leakage)
+- Modeling: KNN evaluated on k in {3, 9, 21}, selected by validation accuracy; final model retrained on train+val and evaluated on test
+- Clustering: K-Means (k=2) used to explore structure; visualization saved to `results/kmeans_clusters_age_maxhr_final.png`
+
+## Notes
+
+- `src/HW1_Code.py` is the primary script; update `DATA_PATH` inside the script if your working directory differs.
+- The notebook (`notebooks/HW1_Code.ipynb`) mirrors the script and is useful for exploration and plotting.
+- For reproducible installs, consider pinning the dependency versions in `requirements.txt`.

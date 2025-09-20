@@ -1,0 +1,23 @@
+#.gitignore for heart-disease-risk-analysis
+
+# Python environment
+.venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# Data and results (do not commit large datasets or generated results)
+/data/
+/results/
+
+# IDE/editor
+.vscode/
