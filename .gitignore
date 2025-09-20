@@ -16,8 +16,11 @@ __pycache__/
 .DS_Store
 
 # Data and results (do not commit large datasets or generated results)
-/data/
-/results/
+/data/*
+!data/Heart_Failure.csv
+/results/*
+!results/HW1_Result.pdf
+!results/kmeans_clusters_age_maxhr_final.png
 
 # Environment files
 .env
